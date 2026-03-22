@@ -1,0 +1,431 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:10.587613-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:44:39.708793-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "6gXD3IJIS/ab4pO6TaLvIA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "{{gtClass:IntuneGraphClient}} is a Microsoft Graph API client for Intune, focused on retrieving Azure Storage SAS URIs for LOB (Line of Business) app binaries.\n\nIt handles OAuth2 client_credentials token flow automatically with expiry-based caching. See {{gtPage:Oauth Flow Microsoft Graph API}} for how to set up an Azure AD app registration with the required permissions.\n\nCredentials can be stored in `~/.secrets/intune-graph-config.json` and loaded via {{gtMethod:IntuneGraphClientExamples>>#clientConfig}}:\n```\n{ \"tenantId\": \"...\", \"clientId\": \"...\", \"clientSecret\": \"/path/to/secret.txt\" }\n```"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:15.034556-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:15.034556-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "t9kZVvOlRtSCj1Qddl7clQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Quick Start"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:20.312503-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:22:45.220091-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "vk4ttRs3SNazj6icnet8dw=="
+				},
+				"code" : "client := IntuneGraphClient new\n\ttenantId: 'your-tenant-id';\n\tclientId: 'your-client-id';\n\tclientSecret: 'your-client-secret'.\nclient mobileApps."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:27.88826-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:27.88826-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "4ZUrH1FIRByqlauod6SzKA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## API Chain for LOB App Binaries\n\nThe Graph API exposes the download URL for LOB app binaries through a 4-step chain:\n\n1. **List apps**: `GET /deviceAppManagement/mobileApps` — filter for LOB types ({{gtMethod:IntuneMobileApp>>#isLobApp}})\n2. **Content versions**: `GET .../mobileApps/{id}/{lobType}/contentVersions`\n3. **Content files**: `GET .../contentVersions/{versionId}/files`\n4. **Storage URI**: The {{gtClass:IntuneContentFile}} has `azureStorageUri` — a time-limited SAS URL to Azure Blob Storage\n\nThe convenience method {{gtMethod:IntuneGraphClient>>#storageUriForApp:}} walks the full chain in one call."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:32.02011-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:32.02011-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "A4qP6mmiSxOYOf9MhG4sOg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Getting the Storage URI for a LOB App"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:37.01452-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:22:45.227668-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "b3IF8g/nSCW2czFpbDBgiw=="
+				},
+				"code" : "\"Get the Azure Blob SAS URL for a LOB app\"\nclient := IntuneGraphClient new\n\ttenantId: 'your-tenant-id';\n\tclientId: 'your-client-id';\n\tclientSecret: 'your-client-secret'.\nlobApps := client lobApps.\nlobApps items ifNotEmpty: [ :apps |\n\tclient storageUriForApp: apps first ]."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:10:44.266369-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:19:16.591938-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "7kGrB+/cTiWobtzUrHIC7Q=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Domain Model\n\n- {{gtClass:IntuneMobileApp}} / {{gtClass:IntuneMobileApps}} — Mobile apps from Intune (store + LOB)\n- {{gtClass:IntuneContentVersion}} / {{gtClass:IntuneContentVersions}} — Content versions for a LOB app\n- {{gtClass:IntuneContentFile}} / {{gtClass:IntuneContentFiles}} — Content files with Azure Storage SAS URIs\n\nAll entity classes extend {{gtClass:IntuneDataEntity}} and group classes extend {{gtClass:IntuneDataGroup}}, reusing the existing serialization and `TGtGroupWithItems` patterns from the Microsoft package."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:19:20.982446-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:19:20.982446-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "B/R/QR0GQQG3rA1NcWzkfw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Step-by-Step Exploration"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:19:26.782404-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:22:53.688208-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Me0ssMitRxKWgbALXzhwKQ=="
+				},
+				"code" : "\"List only LOB apps\"\nclient := IntuneGraphClient new\n\ttenantId: 'your-tenant-id';\n\tclientId: 'your-client-id';\n\tclientSecret: 'your-client-secret'.\nclient lobApps."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:19:32.063086-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:22:53.713782-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "pwhRs1f3Sw2RBoXTo9K5EQ=="
+				},
+				"code" : "\"Walk the chain step by step: app → versions → files → file detail with SAS URI\"\nclient := IntuneGraphClient new\n\ttenantId: 'your-tenant-id';\n\tclientId: 'your-client-id';\n\tclientSecret: 'your-client-secret'.\napp := client lobApps items first.\nversions := app contentVersions.\nfiles := versions items last files.\nfile := files items first fetchDetails.\nfile."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:19:36.677192-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-21T17:19:36.677192-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "cjhVHllvTDqjCmC2I84EFg=="
+				},
+				"code" : "\"Check request history after API calls\"\nclient history."
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-03-21T17:10:10.57572-04:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-03-21T17:10:10.57572-04:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "IntuneGraphClient"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "a1b6c936-0ac7-4af6-9b49-5353df152604"
+	}
+}

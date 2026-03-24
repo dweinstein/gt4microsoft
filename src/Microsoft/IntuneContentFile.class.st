@@ -67,6 +67,27 @@ IntuneContentFile >> azureStorageUriExpirationDateTime: anObject [
 	azureStorageUriExpirationDateTime := anObject
 ]
 
+{ #category : 'actions' }
+IntuneContentFile >> download [
+	"Download to a default location (~/Downloads/intune/)"
+	| dir |
+	dir := FileLocator temp / 'intune'.
+	dir ensureCreateDirectory.
+	^ self downloadTo: dir
+]
+
+{ #category : 'actions' }
+IntuneContentFile >> downloadTo: aDirectory [
+	"Download the app binary from the Azure SAS URI to the given directory. Returns the file reference."
+	| targetFile |
+	self hasStorageUri ifFalse: [ self error: 'No storage URI available. Call fetchDetails first.' ].
+	targetFile := aDirectory asFileReference / (name ifNil: [ 'download.bin' ]).
+	ZnClient new
+		url: azureStorageUri;
+		downloadTo: targetFile.
+	^ targetFile
+]
+
 { #category : 'api' }
 IntuneContentFile >> fetchDetails [
 	"Fetch individual file details from the API to populate azureStorageUri"
@@ -95,10 +116,28 @@ IntuneContentFile >> gtDetailsFor: aView [
 			'Is Committed' -> (isCommitted ifNil: [ '' ]).
 			'Azure Storage URI' -> (azureStorageUri ifNil: [ '' ]).
 			'URI Expiration' -> (azureStorageUriExpirationDateTime ifNil: [ '' ]).
-			'URI Valid' -> self isStorageUriValid
+			'Has Storage URI' -> self hasStorageUri
 		} reject: [ :assoc | assoc value = '' ] ];
 		column: 'Property' text: #key weight: 0.3;
 		column: 'Value' text: #value
+]
+
+{ #category : 'gt-views' }
+IntuneContentFile >> gtDownloadActionFor: anAction [
+	<gtAction>
+	^ anAction button
+		priority: 1;
+		icon: BrGlamorousVectorIcons savetodisk;
+		tooltip: 'Download to /tmp/intune/';
+		action: [ :aButton | 
+			| file |
+			file := self download.
+			aButton phlow spawnObject: file ]
+]
+
+{ #category : 'testing' }
+IntuneContentFile >> hasStorageUri [
+	^ azureStorageUri isNotNil and: [ azureStorageUri isNotEmpty ]
 ]
 
 { #category : 'accessing' }
@@ -119,13 +158,6 @@ IntuneContentFile >> isCommitted [
 { #category : 'accessing' }
 IntuneContentFile >> isCommitted: anObject [
 	isCommitted := anObject
-]
-
-{ #category : 'testing' }
-IntuneContentFile >> isStorageUriValid [
-	azureStorageUri ifNil: [ ^ false ].
-	azureStorageUriExpirationDateTime ifNil: [ ^ false ].
-	^ DateAndTime now < (DateAndTime fromString: azureStorageUriExpirationDateTime)
 ]
 
 { #category : 'accessing' }

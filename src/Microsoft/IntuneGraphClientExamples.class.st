@@ -52,9 +52,8 @@ IntuneGraphClientExamples >> contentFile [
 	self assert: file name equals: 'OmniNotes-playRelease-6.3.1.apk'.
 	self assert: file size equals: 8406639.
 	self assert: file sizeEncrypted equals: 8406688.
-	self assert: file azureStorageUri isNotNil.
+	self assert: file hasStorageUri.
 	self assert: file isCommitted.
-	self assert: file isStorageUriValid.
 	self assert: file uploadState equals: 'commitFileSuccess'.
 	^ file
 ]
@@ -74,6 +73,18 @@ IntuneGraphClientExamples >> contentFileRawData [
 ]
 
 { #category : 'examples - content files' }
+IntuneGraphClientExamples >> contentFileWithoutUri [
+	<gtExample>
+	| data file |
+	data := self contentFileRawData copy.
+	data removeKey: 'azureStorageUri'.
+	data removeKey: 'azureStorageUriExpirationDateTime'.
+	file := IntuneContentFile from: data.
+	self assert: file hasStorageUri not.
+	^ file
+]
+
+{ #category : 'examples - content files' }
 IntuneGraphClientExamples >> contentVersion [
 	<gtExample>
 	| version |
@@ -85,17 +96,6 @@ IntuneGraphClientExamples >> contentVersion [
 	self assert: version appId equals: '74378b29-8e05-4205-86fe-5caf3de1cf42'.
 	self assert: version lobTypeSegment equals: 'microsoft.graph.androidLobApp'.
 	^ version
-]
-
-{ #category : 'examples - content files' }
-IntuneGraphClientExamples >> expiredContentFile [
-	<gtExample>
-	| data file |
-	data := self contentFileRawData copy.
-	data at: 'azureStorageUriExpirationDateTime' put: '2020-01-01T00:00:00Z'.
-	file := IntuneContentFile from: data.
-	self assert: file isStorageUriValid not.
-	^ file
 ]
 
 { #category : 'examples - mobile apps' }

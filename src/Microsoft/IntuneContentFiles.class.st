@@ -15,8 +15,8 @@ IntuneContentFiles >> gtItemsFor: aView [
 		title: 'Files';
 		priority: 1;
 		items: [ self items ];
-		column: 'Name' text: #name weight: 0.4;
-		column: 'Size' text: [ :f | f size ifNotNil: [ :s | s humanReadableSISizeString ] ifNil: [ '' ] ] weight: 0.2;
-		column: 'State' text: [ :f | f uploadState ifNil: [ '' ] ] weight: 0.2;
-		column: 'URI Valid' text: [ :f | f isStorageUriValid ] weight: 0.2
+		column: 'Name' text: #name weight: 0.5;
+		column: 'Size' text: [ :f | f size ifNotNil: [ :s | s humanReadableSISizeString ] ifNil: [ '' ] ] weight: 0.25;
+		column: 'State' text: [ :f | f uploadState ifNil: [ '' ] ] weight: 0.25;
+		send: [ :f | f fetchDetails ]
 ]

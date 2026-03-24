@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2026-03-21T17:44:39.708793-04:00"
+						"dateAndTimeString" : "2026-03-24T12:44:00.211105-04:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "{{gtClass:IntuneGraphClient}} is a Microsoft Graph API client for Intune, focused on retrieving Azure Storage SAS URIs for LOB (Line of Business) app binaries.\n\nIt handles OAuth2 client_credentials token flow automatically with expiry-based caching. See {{gtPage:Oauth Flow Microsoft Graph API}} for how to set up an Azure AD app registration with the required permissions.\n\nCredentials can be stored in `~/.secrets/intune-graph-config.json` and loaded via {{gtMethod:IntuneGraphClientExamples>>#clientConfig}}:\n```\n{ \"tenantId\": \"...\", \"clientId\": \"...\", \"clientSecret\": \"/path/to/secret.txt\" }\n```"
+				"string" : "{{gtClass:IntuneGraphClient}} is a Microsoft Graph API client for Intune, focused on retrieving Azure Storage SAS URIs for LOB (Line of Business) app binaries.\n\nIt handles OAuth2 client_credentials token flow automatically with expiry-based caching. See {{gtPage:OAuth Flow for Microsoft Graph API|db=48gojsucvvoaa5ajou4m13d4h}}for how to set up an Azure AD app registration with the required permissions.\n\nCredentials can be stored in `~/.secrets/intune-graph-config.json` and loaded via {{gtMethod:IntuneGraphClientExamples>>#clientConfig}}:\n```\n{ \"tenantId\": \"...\", \"clientId\": \"...\", \"clientSecret\": \"/path/to/secret.txt\" }\n```"
 			},
 			{
 				"__type" : "textSnippet",

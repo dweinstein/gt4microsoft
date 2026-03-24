@@ -136,6 +136,19 @@ IntuneMobileApp >> displayName: anObject [
 	displayName := anObject
 ]
 
+{ #category : 'actions' }
+IntuneMobileApp >> download [
+	"Download the LOB app binary to ~/Downloads/intune/"
+	| versions files file |
+	self isLobApp ifFalse: [ self error: 'Not a LOB app' ].
+	versions := self contentVersions.
+	versions items ifEmpty: [ self error: 'No content versions' ].
+	files := versions items last files.
+	files items ifEmpty: [ self error: 'No content files' ].
+	file := files items first fetchDetails.
+	^ file download
+]
+
 { #category : 'accessing' }
 IntuneMobileApp >> fileName [
 	^ fileName
@@ -144,6 +157,21 @@ IntuneMobileApp >> fileName [
 { #category : 'accessing' }
 IntuneMobileApp >> fileName: anObject [
 	fileName := anObject
+]
+
+{ #category : 'gt-views' }
+IntuneMobileApp >> gtContentFilesFor: aView [
+	<gtView>
+	self isLobApp ifFalse: [ ^ aView empty ].
+	^ aView forward
+		title: 'Content Files';
+		priority: 5;
+		object: [ 
+			| versions |
+			versions := self contentVersions.
+			versions items ifEmpty: [ IntuneContentFiles withAll: #() ]
+				ifNotEmpty: [ versions items last files ] ];
+		view: #gtItemsFor:
 ]
 
 { #category : 'gt-views' }

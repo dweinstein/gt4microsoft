@@ -1,0 +1,360 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:28.077133-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:28.077133-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "7WxtJEAHR1ObXn5csxzMgw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Step 1: Register an App in Azure AD\n\n- Go to Azure Portal.\n- Navigate to Microsoft Entra Id > Manage > App registrations > New registration.\n- Give it a name (e.g. Intune App Extract), and select the correct supported account types.\n- Click Register\n# Step 2: After registering:\n\n- Save Application (client) ID\n- Save Directory (tenant) ID\n- Client credentials > New Client secret and store it securely.\n# Step 3: Add API Permissions\n\n- Go to Manage > API permissions for your app registration:\n- Add permission: Microsoft Graph > Application permissions > Select permissions\n- Add DeviceManagementApps.Read.All\n- DeviceManagementManagedDevices.Read.All (optional for broader info)\n- Click Add Permission\n- Click \"Grant admin consent for \" and authorize the account"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:34.663677-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:34.663677-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "cEYxIPYiT6C7I9SuU+9fkQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Store your credentials in `~/.secrets/intune-graph-config.json` (see {{gtClass:IntuneGraphClientExamples}} >> {{gtMethod:IntuneGraphClientExamples>>#clientConfig}}):\n```\n{ \"tenantId\": \"your-tenant-id\", \"clientId\": \"your-client-id\", \"clientSecret\": \"/path/to/secret.txt\" }\n```"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:39.729048-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:39.729048-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "REt1xY6dQPaOlCGIHn8djA=="
+				},
+				"code" : "config := IntuneGraphClientExamples new clientConfig.\ntenantId := config at: #tenantId.\nclientId := config at: #clientId.\nclientSecret := config at: #clientSecret."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:43.500689-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:43.500689-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "9xuf8vzFTCmUAKHcIsUoCw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Obtain a token via OAuth (As a Daemon App)"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:51.336147-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:51.336147-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "WzWYUYhmQfWKm4p2TLJciw=="
+				},
+				"code" : "\"POST to the OAuth2 token endpoint with client_credentials grant\"\ntokenEndpoint := 'https://login.microsoftonline.com/' , tenantId , '/oauth2/v2.0/token'.\nresponse := ZnClient new\n\turl: tokenEndpoint;\n\tformAt: 'grant_type' put: 'client_credentials';\n\tformAt: 'client_id' put: clientId;\n\tformAt: 'client_secret' put: clientSecret;\n\tformAt: 'scope' put: 'https://graph.microsoft.com/.default';\n\tpost.\ntoken := (STONJSON fromString: response) at: 'access_token'."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:55.294451-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:41:55.294451-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "ZztKMGx5R3iOgIYYwPM7cw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Read Mobile Apps\n\nWith the bearer token, query the Graph API directly:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:42:00.401505-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:42:00.401505-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "kMbdIk9YSuyuTmeaQkcbaw=="
+				},
+				"code" : "ZnClient new\n\tforJsonREST;\n\tsetBearerAuthentication: token;\n\turl: 'https://graph.microsoft.com/beta/deviceAppManagement/mobileApps';\n\tget."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:42:05.707976-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:42:05.707976-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "uMcB63uzRLK9yPzGQ+cmHA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Using IntuneGraphClient\n\nThe above steps are handled automatically by {{gtClass:IntuneGraphClient}}, which manages token acquisition and expiry-based caching. See {{gtPage:IntuneGraphClient}} for full documentation."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:42:11.545451-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-03-24T12:42:11.545451-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "vtqzRmoiQDG/1CVZJOZMVg=="
+				},
+				"code" : "config := IntuneGraphClientExamples new clientConfig.\nclient := IntuneGraphClient new\n\ttenantId: (config at: #tenantId);\n\tclientId: (config at: #clientId);\n\tclientSecret: (config at: #clientSecret).\nclient mobileApps."
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-03-24T12:41:28.066577-04:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-03-24T12:41:28.066577-04:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "OAuth Flow for Microsoft Graph API"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "18617e6a-be1c-4599-9319-5e262760002d"
+	}
+}
